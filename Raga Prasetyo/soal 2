@@ -1,0 +1,34 @@
+package main
+import "fmt"
+
+func main() {
+    var kendaraan string
+    var durasi int
+    var tarif int
+
+    fmt.Print("Masukkan jenis kendaraan (motor/mobil/truk): ")
+    fmt.Scan(&kendaraan)
+    fmt.Print("Masukkan durasi parkir (dalam jam): ")
+    fmt.Scan(&durasi)
+
+    if durasi < 1 {
+        durasi = 1
+    }
+
+    switch {
+    case kendaraan == "motor":
+        tarif = 2000 * durasi
+
+    case kendaraan == "mobil":
+        tarif = 5000 * durasi
+
+    case kendaraan == "truk":
+        tarif = 8000 * durasi
+
+    default:
+        fmt.Println("Jenis kendaraan tidak valid")
+        return
+    }
+
+    fmt.Printf("Total biaya parkir: Rp %d\n", tarif)
+}
